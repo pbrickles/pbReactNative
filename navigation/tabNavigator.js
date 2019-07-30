@@ -1,13 +1,9 @@
-import {
-  createAppContainer,
-  createBottomTabNavigator,
-  // createStackNavigator,
-} from "react-navigation";
+import {createAppContainer, createBottomTabNavigator} from "react-navigation";
 
 import HomeScreen from "../screens/home";
 import AboutScreen from "../screens/about";
 import ListScreen from "../screens/list";
-
+import stackNavigator from "./stackNavigator";
 
 // create a bottom tab navigator
 const TabNavigator = createBottomTabNavigator(
@@ -18,9 +14,9 @@ const TabNavigator = createBottomTabNavigator(
     About: {
       screen: AboutScreen,
     },
-    List: {
-      screen: ListScreen
-    }
+    News: {
+      screen: stackNavigator,
+    },
   },
   {initialRouteName: "Home"}
 );

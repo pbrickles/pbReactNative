@@ -4,11 +4,16 @@ import {View} from "react-native";
 import {mockArticle} from "../__mocks__/mockArticle";
 
 import Article from "../components/Article";
+import Layout from "../components/Layout";
 
-export default () => {
+const Detail = ({navigation}) => {
   return (
-    <View>
-      <Article article={mockArticle} />
-    </View>
+    <Layout>
+      <View>
+        <Article article={navigation.getParam("article")} />
+      </View>
+    </Layout>
   );
 };
+
+export default Detail;

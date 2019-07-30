@@ -21,9 +21,9 @@ const Card = ({style, ...props}) => {
     <View style={[styles.container]}>
       <Image
         style={styles.image}
-        source={article.imageIsUri ? {uri: article.image} : article.image}
+        source={{uri: article.urlToImage}}
       />
-      <ArticleSummary title={article.title} summary={article.summary} />
+      <ArticleSummary title={article.title} summary={article.description} />
     </View>
   );
 };

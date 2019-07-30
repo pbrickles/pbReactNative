@@ -7,7 +7,7 @@
  */
 
 import React from "react";
-import TabNavigator from "./navigation/TabNavigator";
+import TabNavigator from "./navigation/tabNavigator";
 
 const App = () => {
   return (

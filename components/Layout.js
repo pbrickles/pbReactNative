@@ -1,19 +1,16 @@
 import React from "react";
 
 import {
-  SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
-  StatusBar,
+  Platform
 } from "react-native";
 
 import Header from "../components/Header";
-import Card from "../components/Card";
 
 import colors from "../globalStyles/colors";
-import {mockArticle} from "../__mocks__/mockArticle";
 
 const styles = StyleSheet.create({
   body: {
@@ -32,14 +29,16 @@ const styles = StyleSheet.create({
     alignSelf: "baseline",
     width: "100%",
     backgroundColor: colors.greyDark,
-    color: colors.greyDark,
+    color: colors.white,
     fontSize: 12,
     fontWeight: "600",
     padding: 4,
     paddingRight: 12,
-    textAlign: "right",
   },
 });
+
+const platform = Platform.OS === 'ios' ? 'iOS' : 'Android';
+const message = `${platform} app built using React Native`;
 
 const Layout = ({children}) => (
   <React.Fragment>
@@ -47,7 +46,7 @@ const Layout = ({children}) => (
       <Header />
       <View style={styles.body}>{children}</View>
       <View style={styles.footer}>
-        <Text>Footer here</Text>
+        <Text>{message}</Text>
       </View>
     </ScrollView>
   </React.Fragment>
