@@ -5,11 +5,12 @@ import {
   View,
   ActivityIndicator,
   Text,
+  FlatList,
 } from "react-native";
 import AsyncStorage from "@react-native-community/async-storage";
 
+import Header from "../components/Header";
 import Card from "../components/Card";
-import Layout from "../components/Layout";
 
 import colors from "../globalStyles/colors";
 
@@ -43,6 +44,13 @@ const styles = StyleSheet.create({
   touchable: {
     marginTop: 4,
     marginBottom: 0,
+  },
+  listContainer: {
+    display: "flex",
+  },
+  list: {
+    backgroundColor: colors.greyMedium,
+    width: "100%",
   },
 });
 
@@ -78,27 +86,34 @@ const ListScreen = ({navigation}) => {
   }, [articles, setArticles]);
 
   return (
-    <Layout>
-      <View>
-        {articles &&
-          articles.length > 0 &&
-          articles.map((article, i) => (
+    <View style={styles.listContainer}>
+      <Header
+        title={
+          navigation.getParam("sBookmarks") ? "Bookmarks" : "Latest Headlines"
+        }
+      />
+      {articles && articles.length > 0 && (
+        <FlatList
+          style={styles.list}
+          data={articles}
+          keyExtractor={({title}) => title}
+          renderItem={({item: article}, i) => (
             <TouchableOpacity
               onPress={() => navigation.navigate("Detail", {article})}
               style={styles.touchable}
-              key={`article_${i}`}
             >
               <Card article={article} />
             </TouchableOpacity>
-          ))}
-        {!articles && !loading && (
-          <View>
-            <Text>{message}</Text>
-          </View>
-        )}
-        {loading && <ActivityIndicator size="large" color={colors.primary} />}
-      </View>
-    </Layout>
+          )}
+        />
+      )}
+      {!articles && !loading && (
+        <View>
+          <Text>{message}</Text>
+        </View>
+      )}
+      {loading && <ActivityIndicator size="large" color={colors.primary} />}
+    </View>
   );
 };
 

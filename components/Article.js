@@ -6,11 +6,12 @@ import colors from "../globalStyles/colors";
 const styles = StyleSheet.create({
   header: {
     display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     fontSize: 20,
     fontWeight: "bold",
     minHeight: 90,
     backgroundColor: colors.greyDark,
-    color: colors.white,
   },
   container: {
     display: "flex",
@@ -19,9 +20,16 @@ const styles = StyleSheet.create({
   content: {
     padding: 8,
   },
+  title: {
+    padding: 4,
+    fontSize: 16,
+    fontWeight: "200",
+    letterSpacing: 2,
+    color: colors.white
+  },
   image: {
     width: "100%",
-    height: "auto",
+    height: 200,
   },
 });
 
@@ -29,7 +37,7 @@ const Article = ({article}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>{article.title}</Text>
+        <Text style={styles.title}>{article.title}</Text>
       </View>
       <View>
         <Image source={{uri: article.urlToImage}} style={styles.image} />

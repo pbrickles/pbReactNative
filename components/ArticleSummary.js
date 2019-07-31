@@ -1,5 +1,6 @@
 import React from "react";
 import {View, StyleSheet, Text} from "react-native";
+import colors from "../globalStyles/colors";
 
 const styles = StyleSheet.create({
   header: {
@@ -15,6 +16,7 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 4,
+    color: colors.greyDark,
   }
 });
 

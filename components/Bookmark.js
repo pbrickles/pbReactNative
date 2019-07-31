@@ -45,7 +45,7 @@ const Bookmark = ({style, ...props}) => {
     return (
       <TouchableOpacity onPress={() => storeData(props.article)}>
         <View style={styles.bookmarkContainerIos}>
-          <FontAwesomeIcon icon={faBookmark} color={colors.white} />
+          <FontAwesomeIcon icon={faBookmark} color={colors.greyDark} />
         </View>
       </TouchableOpacity>
     );
@@ -53,7 +53,7 @@ const Bookmark = ({style, ...props}) => {
     return (
       <TouchableNativeFeedback onPress={() => storeData(props.article)}>
         <View style={styles.bookmarkContainerAndroid}>
-          <FontAwesomeIcon icon={faStar} color={colors.white} size={18} />
+          <FontAwesomeIcon icon={faStar} color={colors.greyDark} size={18} />
         </View>
       </TouchableNativeFeedback>
     );

@@ -8,14 +8,15 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.primary,
+    backgroundColor: colors.greyLight,
     minHeight: 80,
   },
   title: {
     fontSize: 20,
-    color: colors.white,
+    color: colors.greyDark,
     textTransform: "uppercase",
-    fontWeight: "800",
+    fontWeight: "200",
+    letterSpacing: 2,
   },
 });
 
@@ -23,7 +24,7 @@ const Header = props => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.title}>My App</Text>
+        <Text style={styles.title}>{props.title ? props.title : "PB App"}</Text>
       </View>
     </View>
   );

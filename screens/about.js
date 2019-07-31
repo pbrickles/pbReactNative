@@ -1,6 +1,6 @@
 import React from "react";
 import {View, StyleSheet, Text} from "react-native";
-import Layout from "../components/Layout";
+import Header from "../components/Header";
 
 const styles = StyleSheet.create({
   container: {
@@ -11,11 +11,12 @@ const styles = StyleSheet.create({
 });
 
 const AboutScreen = () => (
-  <Layout>
+  <View>
+    <Header />
     <View style={styles.container}>
       <Text>About</Text>
     </View>
-  </Layout>
+  </View>
 );
 
 export default AboutScreen;
