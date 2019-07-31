@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.primary,
-    minHeight: 120,
+    minHeight: 80,
   },
   title: {
     fontSize: 20,
